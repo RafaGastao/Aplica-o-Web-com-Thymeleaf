@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafael Gastão | Portfólio Front-end</title>
+  <meta name="description" content="Portfólio de Rafael Gastão, desenvolvedor front-end com foco em HTML, CSS, JavaScript e React." />
+  <link rel="stylesheet" href="./css/style.css?v=2" th:href="@{'/css/style.css?v=2'}" />
+</head>
+<body>
+  <header class="header" id="inicio">
+    <div class="container">
+      <a class="logo" href="#inicio" th:text="${nome}">Rafael Gastão</a>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="#sobre">Quem sou</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#certificados">Certificados</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#redes">Redes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1><span th:text="${nome}">Rafael Gastão</span><br /><span th:text="${cargo}">Desenvolvedor Front-end</span></h1>
+          <p class="hero-texto" th:text="${apresentacao}">
+            Construindo projetos práticos em HTML, CSS, JavaScript e React, com foco em interfaces
+            modernas, performance e código bem estruturado.
+          </p>
+          <div class="hero-acoes">
+            <a class="btn btn-primario" href="#projetos">Ver projetos</a>
+            <a class="btn btn-secundario" href="#redes">Minhas redes</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <img class="hero-card-foto" src="./img/rafael.jpeg" th:src="@{'/img/rafael.jpeg'}" alt="Foto de Rafael Gastão" />
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="sobre" aria-label="Sobre mim">
+      <div class="container">
+        <h2>Quem sou</h2>
+        <p th:text="${sobre}">
+          Tenho 21 anos e sou apaixonado por tecnologia e desenvolvimento de software. Atualmente, estudo  com desenvolvimento Full Stack, criando interfaces modernas e responsivas com React e SASS, além de desenvolver a lógica de aplicações e gerenciar bancos de dados com Python e MySQL.
+Gosto de desafios e de aprender novas tecnologias para resolver problemas do mundo real. Meu foco é sempre criar aplicações eficientes e bem estruturadas.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao" id="stack" aria-label="Stack técnico">
+      <div class="container">
+        <p class="secao-label">HABILIDADES</p>
+        <h2>Stack técnico</h2>
+        <div class="stack-layout">
+          <div class="stack-lista">
+              <article class="stack-item" th:each="habilidade : ${habilidades}"><h3 th:text="${habilidade}">HTML &amp; CSS</h3></article>
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="certificados" aria-label="Certificados">
+      <div class="container">
+        <p class="secao-label">FORMAÇÃO</p>
+        <h2>Certificados</h2>
+        <p class="secao-desc">Cursos e certificações concluídos ao longo da minha trajetória.</p>
+        <div class="certificados-grid">
+          <article class="cert-card">
+            <a class="cert-thumb cert-thumb-link" href="./img/Certificado de Conclusão - Rafael Gastão Trajano Carlos (1).pdf" th:href="@{'/img/Certificado de Conclusão - Rafael Gastão Trajano Carlos (1).pdf'}" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado Vai na Web em PDF">
+              <img src="./img/certificadoVaiNaWeb.png" th:src="@{'/img/certificadoVaiNaWeb.png'}" alt="Miniatura do certificado Vai na Web" />
+            </a>
+            <h3 th:text="${certificados[0].titulo}">Desenvolvedor(a) FullStack — Vai na Web</h3>
+            <p th:text="${certificados[0].descricao}">Formação concluída com 234h de carga horária.</p>
+            <ul class="tags">
+              <li>Vai na Web</li>
+              <li>2025</li>
+            </ul>
+          </article>
+
+          <article class="cert-card">
+            <a class="cert-thumb cert-thumb-link" href="./img/Certificado Carreira em Cibersegurança - Rafael Gastão Trajano Carlos.pdf" th:href="@{'/img/Certificado Carreira em Cibersegurança - Rafael Gastão Trajano Carlos.pdf'}" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado de carreira em cibersegurança em PDF">
+              <img src="./img/certificadoCibersegurança.png" th:src="@{'/img/certificadoCibersegurança.png'}" alt="Miniatura do certificado de carreira em cibersegurança" />
+            </a>
+            <h3 th:text="${certificados[1].titulo}">Carreira em Cibersegurança</h3>
+            <p th:text="${certificados[1].descricao}">Certificação de trilha focada em fundamentos e práticas de segurança.</p>
+            <ul class="tags">
+              <li>Cibersegurança</li>
+              <li>Certificação</li>
+            </ul>
+          </article>
+
+          <article class="cert-card">
+            <a class="cert-thumb cert-thumb-link" href="./img/Certificado HTML e CSS para Iniciantes.pdf" th:href="@{'/img/Certificado HTML e CSS para Iniciantes.pdf'}" target="_blank" rel="noopener noreferrer" aria-label="Abrir certificado HTML e CSS para iniciantes em PDF">
+              <img src="./img/certificadoHTMLeCSSparaIniciantes.png" th:src="@{'/img/certificadoHTMLeCSSparaIniciantes.png'}" alt="Miniatura do certificado HTML e CSS para iniciantes" />
+            </a>
+            <h3 th:text="${certificados[2].titulo}">HTML e CSS para Iniciantes</h3>
+            <p th:text="${certificados[2].descricao}">Curso completo da Origamid, com 46 horas de estudo sobre estrutura, semântica e estilização de páginas web.</p>
+            <ul class="tags">
+              <li>Origamid</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>2026</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="projetos" aria-label="Projetos">
+      <div class="container">
+        <p class="secao-label">PROJETOS</p>
+        <h2>Trabalhos recentes</h2>
+        <p class="secao-desc">Projetos desenvolvidos para transformar conhecimentos em experiências web funcionais, responsivas e bem estruturadas. A seleção reúne interfaces, sistemas e páginas construídas com HTML, CSS, JavaScript e outras tecnologias do meu aprendizado.</p>
+
+        <div class="projetos-carousel" aria-label="Carrossel de projetos">
+          <button class="carousel-btn prev" type="button" aria-label="Projeto anterior">❮</button>
+          <div class="projetos-viewport">
+            <div class="projetos-track" id="projetosTrack">
+              <article class="projeto-slide">
+                <a class="projeto-imagem projeto-imagem-link" href="https://github.com/RafaGastao/DesafioFinal" target="_blank" rel="noopener noreferrer" aria-label="Abrir repositório do projeto DesafioFinal no GitHub">
+                  <img src="./img/desafio biblioteca vai na web.png" th:src="@{'/img/desafio biblioteca vai na web.png'}" alt="Preview do projeto Desafio Final" />
+                </a>
+                <div class="projeto-info">
+                  <h3 th:text="${projetos[0].titulo}">Desafio Final — Biblioteca</h3>
+                  <p th:text="${projetos[0].descricao}">Projeto web desenvolvido como desafio final, com foco em interface responsiva, organização de conteúdo e navegação intuitiva para uma experiência de uso clara e agradável.</p>
+                  <a class="btn btn-secundario projeto-link-codigo" href="https://github.com/RafaGastao/DesafioFinal" target="_blank" rel="noopener noreferrer">Ver código</a>
+                </div>
+              </article>
+
+              <article class="projeto-slide">
+                <a class="projeto-imagem projeto-imagem-link" href="https://github.com/RafaGastao/Cemiterio" target="_blank" rel="noopener noreferrer" aria-label="Abrir repositório do projeto Cemitério no GitHub">
+                  <img src="./img/cemiterio.png" th:src="@{'/img/cemiterio.png'}" alt="Preview do projeto Cemitério Online" />
+                </a>
+                <div class="projeto-info">
+                  <h3 th:text="${projetos[1].titulo}">Cemitério Online</h3>
+                  <p th:text="${projetos[1].descricao}">Sistema web para gestão de cemitérios, com foco em organização de informações e operações administrativas.</p>
+                  <a class="btn btn-secundario projeto-link-codigo" href="https://github.com/RafaGastao/Cemiterio" target="_blank" rel="noopener noreferrer">Ver código</a>
+                </div>
+              </article>
+
+              <article class="projeto-slide">
+                <div class="projeto-galeria-bikcraft" aria-label="Galeria de telas do projeto Bikcraft">
+                  <a href="./img/telaInicialBikecraft.png" th:href="@{'/img/telaInicialBikecraft.png'}" target="_blank" rel="noopener noreferrer" aria-label="Abrir tela inicial do Bikcraft ampliada">
+                    <img src="./img/telaInicialBikecraft.png" th:src="@{'/img/telaInicialBikecraft.png'}" alt="Tela inicial do projeto Bikcraft" />
+                  </a>
+                  <a href="./img/bicicletas.png" th:href="@{'/img/bicicletas.png'}" target="_blank" rel="noopener noreferrer" aria-label="Abrir página de bicicletas do Bikcraft ampliada">
+                    <img src="./img/bicicletas.png" th:src="@{'/img/bicicletas.png'}" alt="Página de bicicletas do projeto Bikcraft" />
+                  </a>
+                  <a href="./img/seguros.png" th:href="@{'/img/seguros.png'}" target="_blank" rel="noopener noreferrer" aria-label="Abrir página de seguros do Bikcraft ampliada">
+                    <img src="./img/seguros.png" th:src="@{'/img/seguros.png'}" alt="Página de seguros do projeto Bikcraft" />
+                  </a>
+                  <a href="./img/contato.png" th:href="@{'/img/contato.png'}" target="_blank" rel="noopener noreferrer" aria-label="Abrir página de contato do Bikcraft ampliada">
+                    <img src="./img/contato.png" th:src="@{'/img/contato.png'}" alt="Página de contato do projeto Bikcraft" />
+                  </a>
+                </div>
+                <div class="projeto-info">
+                  <h3 th:text="${projetos[2].titulo}">Bikcraft</h3>
+                  <p th:text="${projetos[2].descricao}">Landing page responsiva desenvolvida com HTML, CSS e JavaScript, utilizando Flexbox, CSS Grid e organização de componentes para criar as páginas de produtos, seguros e contato.</p>
+                  <a class="btn btn-secundario projeto-link-codigo" href="https://github.com/RafaGastao/Projeto-Final_HTML_Origamid" target="_blank" rel="noopener noreferrer">Ver código</a>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button class="carousel-btn next" type="button" aria-label="Próximo projeto">❯</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/main.js" th:src="@{'/js/main.js'}"></script>
+
+  <footer class="footer" id="redes" aria-label="Redes sociais">
+    <div class="container">
+      <h2>Redes sociais</h2>
+      <p>Me encontre nas plataformas abaixo:</p>
+      <ul class="contato-lista">
+        <li><a href="https://github.com/RafaGastao?tab=repositories" target="_blank" rel="noopener noreferrer">https://github.com/RafaGastao?tab=repositories</a></li>
+        <li><a href="https://www.linkedin.com/in/rafael-gast%C3%A3o-504024272/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/rafael-gast%C3%A3o-504024272/</a></li>
+      </ul>
+      <small th:text="|© ${ano} ${nome}. Todos os direitos reservados.|">© 2026 Rafael Gastão. Todos os direitos reservados.</small>
+    </div>
+  </footer>
+</body>
+</html>
